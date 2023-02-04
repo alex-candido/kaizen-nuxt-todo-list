@@ -3,18 +3,20 @@ import { v4 as uuid } from 'uuid'
 
 export interface Todo {
   id: string
-  title: string
+  label: string
   done: boolean
   createdAt: Date
   updatedAt: Date
 }
 
+export type Todos = Todo[] | undefined;
+
 export interface TodoAdd {
-  title: string
+  label: string
 }
 
 export interface TodoUpdate {
-  title?: string
+  label?: string
   done?: boolean
 }
 
@@ -28,7 +30,8 @@ const state = (): TodoState => ({
 
 const getters = {
   getById: (state: TodoState) => (id: string) => {
-    return state.items.find((item: Todo) => item.id === id)
+    return (id: string ) =>
+      state.items.find((item: Todo) => item.id === id)
   },
   getOrderedTodos: (state: TodoState) =>
     [...state.items].sort(
