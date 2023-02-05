@@ -22,15 +22,35 @@ import { Todo, useTodoStore } from '~~/store/todo';
 
 <template>
   <div>
-    <div class="max-w-10">
-      <div class="max-w-10/12 overflow-hidden whitespace-nowrap text-ellipsis">
-        <h1>{{ todo.label }}</h1>
-        <!-- <p>{{ todo }}</p> -->
-      </div>
+    <div class="max-w-10/12 overflow-hidden whitespace-nowrap text-ellipsis" >
+      <h1
+        :class="{
+          'line-through': todo.done,
+        }"
+        class="text-2xl text-gray-700 select-none font-light uppercase"
+        :title="todo.label"
+      >
+        {{ todo.label }}
+      </h1>
+      <p>
+        <small class="text-gray-400">
+          {{ parsedDate }}
+        </small>
+      </p>
     </div>
     <section class="flex items-center">
-      <check-circle-icon />
-      <x-circle-icon />
+      <check-circle-icon 
+        class="w-10 h-10 transition-all duration-200 hover:text-green-400 mr-3 cursor-pointer"
+        :class="{
+          'text-green-400': todo.done,
+          'text-gray-400': !todo.done,
+        }"
+        @click="updateTodoDone(todo)"
+      />
+      <x-circle-icon 
+        class="w-10 h-10 transition-all duration-200 text-red-400 cursor-pointer hover:text-red-600"
+        @click="deleteTodo(todo.id)"
+      />
     </section>
   </div>
 </template> 
