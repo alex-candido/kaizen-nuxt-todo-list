@@ -13,6 +13,10 @@ import { Todo, useTodoStore } from '~~/store/todo';
     const currentState = todo.done;
     todoStore.update(todo.id, { done: !currentState })
   }
+
+  const parsedDate = computed(() => {
+    new Intl.DateTimeFormat("pt-BR").format(new Date(props.todo.createdAt))
+  })
   
 </script>
 
