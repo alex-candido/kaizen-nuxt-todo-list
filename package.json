@@ -19,7 +19,10 @@
     "vitest": "^0.27.2"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.14",
     "@nuxtjs/tailwindcss": "^6.2.0",
+    "@vue-hero-icons/outline": "^1.7.2",
+    "@vue-hero-icons/solid": "^1.7.2",
     "pinia": "^2.0.29",
     "uuid": "^9.0.0"
   }
