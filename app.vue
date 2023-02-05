@@ -6,25 +6,24 @@
   const error = ref(false)
 
   watch(error, (value: boolean) => {
-    if(value) {
+    if (value) {
       setTimeout(() => {
         error.value = false;
-      }, 3000);
+      }, 500);
     }
-  })
+  });
 
-  const saveNewTodo = () => {
-    if(newTodo.value.length < 0) {
+  const saveNewTodo = async () => {
+    if(!newTodo.value) {
       error.value = true;
       return;
     }
 
-    todoStore.add({
+    await todoStore.add({
       label: newTodo.value,
     })
 
     newTodo.value = "";
-
     console.log(todoStore.items)
   }
 
@@ -40,10 +39,6 @@
     >
       <todo-input v-model="newTodo" @save="saveNewTodo" :error="error" />
       <todo-list />
-      <!-- <form @submit.prevent>
-        <input type="text" class="py-2 px-4 border border-blue-200 focus:outline-blue-400 rounded" placeholder="Add a todo">
-        <button class="transition-all duration-200 border border-blue-200 py-2 px-4 ml-3 hover:bg-blue-200 rounded">Add Todo</button>
-      </form> -->
     </section>
   </main>
 </template>
