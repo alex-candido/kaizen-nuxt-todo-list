@@ -27,7 +27,7 @@
     console.log(todoStore.items)
   }
 
-</script>
+</script> 
 
 <template>
   <main class="min-h-screen bg-gray-100 pt-18">

@@ -21,7 +21,7 @@ import { Todo, useTodoStore } from '~~/store/todo';
 </script>
 
 <template>
-  <div>
+  <list-item-container>
     <div class="max-w-10/12 overflow-hidden whitespace-nowrap text-ellipsis" >
       <h1
         :class="{
@@ -52,5 +52,5 @@ import { Todo, useTodoStore } from '~~/store/todo';
         @click="deleteTodo(todo.id)"
       />
     </section>
-  </div>
+  </list-item-container>
 </template> 
