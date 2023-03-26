@@ -9,7 +9,7 @@ export interface Todo {
   updatedAt: Date
 }
 
-export type Todos = Todo[] | undefined;
+export type Todos = Todo[];
 
 export interface TodoAdd {
   label: string

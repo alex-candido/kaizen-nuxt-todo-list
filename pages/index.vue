@@ -27,7 +27,7 @@
     console.log(todoStore.items)
   }
 
-</script>
+</script> 
 
 <template>
   <main class="min-h-screen bg-gray-100 pt-18">
@@ -38,7 +38,7 @@
     class="w-8/12 md:mx-auto lg:w-6/12 py-4 rounded-lg"
     >
       <todo-input v-model="newTodo" @save="saveNewTodo" :error="error" />
-      <todo-list />
+      <todo-list :items="todoStore.getOrderedTodos.reverse()" />
     </section>
   </main>
 </template>
