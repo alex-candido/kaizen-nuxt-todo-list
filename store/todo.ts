@@ -29,11 +29,11 @@ const state = (): TodoState => ({
 })
 
 const getters = {
-  getById: (state: TodoState) => (id: string) => {
+  getTodoById: (state: TodoState) => (id: string) => {
     return (id: string ) =>
       state.items.find((item: Todo) => item.id === id)
   },
-  getOrderedTodos: (state: TodoState) =>
+  getSortedTodos: (state: TodoState) =>
     [...state.items].sort(
       (a: Todo, b: Todo) =>
         a.createdAt.getTime() - b.createdAt.getTime(),
